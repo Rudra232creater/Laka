@@ -1,0 +1,49 @@
+bot.onText(/\/play/, (msg) => {
+  const chatId = msg.chat.id;
+  
+  // Game interface image (replace with your actual game screenshot)
+  const gameInterfaceUrl = "https://your-lakaluck-domain.com/images/game-screen.png";
+  
+  bot.sendPhoto(chatId, gameInterfaceUrl, {
+    caption: `💎 <b>LAKALUCK TAP EMPIRE</b> 💎
+    
+🎯 <b>GOAL:</b> Tap to mine LakaCoins and build your financial empire!
+
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+💰 <b>BALANCE:</b> <code>0 LakaCoins</code>
+⚡ <b>ENERGY:</b> [||||||||||] 100%
+🏆 <b>RANK:</b> #999,999
+▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
+<b>🔄 TAP BONUS:</b> +1.0x per tap
+<b>⚙️ AUTO-TAP:</b> 0 taps/min
+<b>💎 MULTIPLIER:</b> 1.0x
+
+💡 <i>Pro Tip:</i> Upgrade your tools to earn faster!`,
+    parse_mode: "HTML",
+    reply_markup: {
+      inline_keyboard: [
+        [
+          {
+            text: "🖱 TAP TO EARN (+1 LakaCoin)",
+            callback_data: "tap_action"
+          }
+        ],
+        [
+          { text: "⚙️ UPGRADES", callback_data: "upgrades" },
+          { text: "🏆 LEADERBOARD", callback_data: "leaderboard" },
+          { text: "🎁 DAILY BONUS", callback_data: "daily_bonus" }
+        ],
+        [
+          { text: "🛒 SHOP", callback_data: "shop" },
+          { text: "📈 STATS", callback_data: "stats" },
+          { text: "👥 INVITE", callback_data: "referral" }
+        ],
+        [
+          { text: "🔧 SETTINGS", callback_data: "settings" },
+          { text: "❓ HELP", callback_data: "help" }
+        ]
+      ]
+    }
+  });
+});
