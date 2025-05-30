@@ -1,0 +1,46 @@
+bot.onText(/\/start/, (msg) => {
+  const chatId = msg.chat.id;
+  
+  // Main logo image (you should replace with your actual image URL)
+  const logoUrl = "https://your-lakaluck-domain.com/images/logo.png";
+  
+  bot.sendPhoto(chatId, logoUrl, {
+    caption: `🌟 <b>WELCOME TO LAKALUCK</b> 🌟
+    
+🚀 Your <b>ultimate tap-to-earn adventure</b> begins NOW!
+
+💰 <b>Earn LakaCoins</b> by building your virtual tapping empire. <i>Tap smarter, upgrade faster, and dominate the leaderboards!</i>
+
+✨ <b>KEY FEATURES:</b>
+┌───────────────────────────────
+│ 🖱 <b>Tap-to-Earn</b> - Collect coins with every tap
+│ ⚡ <b>Upgrade System</b> - Boost your earnings
+│ 📅 <b>Daily Rewards</b> - Claim free bonuses
+│ 🌍 <b>Global Leaderboard</b> - Compete worldwide
+│ 🤝 <b>Referral Program</b> - Earn when friends join
+└───────────────────────────────
+
+🎁 <b>SPECIAL BONUS:</b> New players get <b>500 FREE LakaCoins</b>!
+
+👇 <b>Ready to become a tapping legend?</b>`,
+    parse_mode: "HTML",
+    reply_markup: {
+      inline_keyboard: [
+        [
+          {
+            text: "🚀 START PLAYING",
+            web_app: { url: "https://your-lakaluck-game.com/play" }
+          }
+        ],
+        [
+          { text: "📊 My Stats", callback_data: "stats" },
+          { text: "🏆 Leaderboard", callback_data: "leaderboard" }
+        ],
+        [
+          { text: "🎁 Daily Bonus", callback_data: "daily_bonus" },
+          { text: "👥 Invite Friends", callback_data: "referral" }
+        ]
+      ]
+    }
+  });
+});
